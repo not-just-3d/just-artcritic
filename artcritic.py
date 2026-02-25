@@ -52,8 +52,8 @@ class ArtCritic():
             )
             return message.content[0].text
         except Exception as e:
-            return 'Untitled'
             print(e)
+            return 'Untitled'
 
 
 def get_system_prompt(system_prompt_path: str|None = None) -> str:
@@ -71,6 +71,19 @@ class MyEventHandler(FileSystemEventHandler):
 
     def on_created(self, event):
         image_path = event.src_path
+
+        # wait to make sure the file is written before (max 10 retries)
+        prev_file_size = None
+        for i in range(10):
+            file_size = os.path.getsize(image_path)
+            if file_size == prev_file_size:
+                break
+            prev_file_size = file_size
+            time.sleep(1)
+        else:
+            print(f"Warning: {image_path} did not stabilize, skipping.")
+            return
+        
         _, image_name = os.path.split(image_path)
         image_base_name, image_extension = os.path.splitext(image_name)
 
