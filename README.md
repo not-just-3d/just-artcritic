@@ -43,7 +43,7 @@ it gets a title from claude and saves it in a textfile alongside
 a copy of the image in the target folder.
 if an error occurrs in the naming process, "Untitled" is used instead.
 
-### 7. to stop just use a keyboard interrupt (<ctrl>+c),
+### 7. to stop just use a keyboard interrupt (ctrl+c),
 there is currently no way to gracefully shut down the script.
 
 
