@@ -22,7 +22,7 @@ venv\Scripts\activate
 
 ### 3. install the required packages with
 ```bash
-python -m pip instal -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 ### 4. create a file called .env in the same folder with these environment variables:
