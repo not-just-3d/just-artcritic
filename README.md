@@ -49,5 +49,7 @@ there is currently no way to gracefully shut down the script.
 
 # CAVEATS:
 This script has NOT been thoroughly testet.
+
 No checks and safeguards are in place.
+
 It currently ONLY works with .jpg files.
